@@ -119,10 +119,10 @@
 
   <script>
     // Define the start date (April 15, 2025)
-    const startDate = new Date('2025-04-14');
+    const startDate = new Date('2025-04-15');
     
     // Get today's date
-    const today = new Date('2025-04-15');
+    const today = new Date().toISOString().split('T')[0];
     
     // Calculate the number of days since the start date
     const timeDiff = today - startDate;
