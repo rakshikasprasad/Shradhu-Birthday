@@ -17,24 +17,25 @@ const daysSinceStart = Math.floor(timeDiff / (1000 * 3600 * 24)); // Convert tim
 
 // List of questions for each day (18 questions)
 const questions = [
-  "On Day 1, let's start with a fun question: What's one thing you’re looking forward to this year?",
-  "Day 2: What's your favorite childhood memory?",
-  "Day 3: If you could visit any place in the world, where would it be?",
-  "Day 4: What is the best piece of advice you've ever received?",
-  "Day 5: What's your dream job or career?",
-  "Day 6: If you had a superpower, what would it be and why?",
-  "Day 7: What’s the best book you’ve ever read?",
-  "Day 8: If you could have dinner with any celebrity, who would it be?",
-  "Day 9: What’s your favorite family tradition?",
-  "Day 10: What’s a skill you’d love to learn?",
-  "Day 11: If you could live in any time period, which one would it be?",
-  "Day 12: What’s your favorite movie and why?",
-  "Day 13: What’s one of your biggest achievements?",
-  "Day 14: What’s the most adventurous thing you’ve done?",
-  "Day 15: What are you most grateful for today?",
-  "Day 16: Who inspires you the most and why?",
-  "Day 17: What’s a place you want to visit in your lifetime?",
-  "Day 18: Happy Birthday, Shradhitha! Here's your special surprise message!"
+  const questions = [
+  "Alright, let’s start with the important stuff. What’s the first thing you remember about me?",
+  "What’s the weirdest thing you’ve ever done that still haunts you to this day?",
+  "Who do you think you are, pretending to be the responsible one in this family? Come on, tell me one of your ‘oops’ moments.",
+  "What’s the most embarrassing thing I’ve ever done to you that you still can’t live down?",
+  "If you could have any superpower, would it be to make me stop bullying you or is there something even more important?",
+  "What’s the one thing you wish you could’ve done without me always tagging along?",
+  "Remember when you bit my stomach? What were you even thinking at that moment?",
+  "What’s the most ridiculous thing I’ve convinced you to do over the years?",
+  "If you could relive one moment from your life, which one would you pick, and why?",
+  "On a scale of 1 to 10, how much do you love me, considering the fact that I’m the reason you have all your best memories?",
+  "What’s one dream or goal you’re excited to pursue in the next few years?",
+  "What’s something you’ve done that made you think, ‘Well, that was a poor life choice’?",
+  "If we were in a comedy movie, what would the plot be, and who would be the villain—me, of course?",
+  "What’s the most bizarre fashion trend you followed in your life, and can you still pull it off?",
+  "What’s one thing I do that secretly annoys you, but you’re too nice to say it out loud?",
+  "What’s the best thing you’ve learned from me over the years, and no, ‘how to annoy people’ doesn’t count.",
+  "If you could trade places with me for a day, what’s the first thing you’d do, and would you survive my life for 24 hours?",
+  " Okay, 18 years together—what’s the most epic sister moment we’ve shared, and can we do it again without embarrassing ourselves too much?"
 ];
 
 // Show the question for the current day
