@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>18 Days of Surprises</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 6vw;
+      padding: 10px 20px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 25px 15px;
+      margin: 10px auto;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    #prompt {
+      color: white;
+      font-size: 5vw;
+      margin: 20px 0;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 4.5vw;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 4.5vw;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #7b2cbf;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .decor {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .decor img {
+      width: 100%;
+      max-height: 120px;
+    }
+
+    @media screen and (min-width: 600px) {
+      h1 { font-size: 2rem; }
+      #prompt { font-size: 1.3rem; }
+      input[type="text"], button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="container">
+    <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
+    <p id="prompt">Loading today’s surprise...</p>
+    <input type="text" id="response" placeholder="Your answer here">
+    <br />
+    <button onclick="nextDay()">Submit</button>
+  </div>
+<!-- EmailJS Library -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

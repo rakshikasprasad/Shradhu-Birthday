@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spin the Wheel - Birthday Surprise!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: #fff;
+      margin: 30px 15px 10px;
+      font-size: 2rem;
+    }
+
+    #wheel {
+      margin: 20px auto;
+      width: 90vw;
+      max-width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 10px solid #fff;
+      position: relative;
+      background: conic-gradient(
+        #f9c80e 0deg 20deg, #f86624 20deg 40deg, #ea3546 40deg 60deg,
+        #662e9b 60deg 80deg, #43bccd 80deg 100deg, #f9c80e 100deg 120deg,
+        #f86624 120deg 140deg, #ea3546 140deg 160deg, #662e9b 160deg 180deg,
+        #43bccd 180deg 200deg, #f9c80e 200deg 220deg, #f86624 220deg 240deg,
+        #ea3546 240deg 260deg, #662e9b 260deg 280deg, #43bccd 280deg 300deg,
+        #f9c80e 300deg 320deg, #f86624 320deg 340deg, #ea3546 340deg 360deg
+      );
+    }
+
+    #pointer {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid #fff;
+      margin: 10px auto;
+    }
+
+    #spin {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #7b2cbf;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+    }
+
+    #spin:disabled {
+      background: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    #spin:hover:not(:disabled) {
+      transform: scale(1.1);
+    }
+
+    #result {
+      color: white;
+      font-size: 1.4em;
+      margin-top: 20px;
+    }
+
+    /* Confetti image and decorations */
+    .decor {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .decor img {
+      width: 100%;
+      max-height: 150px;
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      #result { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  
+
+  <h1>Spin the Wheel to Get Today’s Gift!</h1>
+  <div id="pointer"></div>
+  <div id="wheel"></div>
+  <button id="spin" onclick="spin()">Spin</button>
+  <p id="result"></p>
+
+  <script>
+    const spinBtn = document.getElementById('spin');
+    const wheel = document.getElementById('wheel');
+    const resultText = document.getElementById('result');
+
+    // Check if user already spun today
+    const today = new Date().toISOString().split('T')[0];
+    const lastSpinDate = localStorage.getItem('lastSpinDate');
+
+    if (lastSpinDate === today) {
+      spinBtn.disabled = true;
+      resultText.innerText = `You already spun today! 🎁\nCheck for gift #${localStorage.getItem('giftNumber')}!`;
+    }
+
+    function spin() {
+      const giftNumber = Math.floor(Math.random() * 18) + 1;
+      const rotateAngle = 3600 + (giftNumber - 1) * 20;
+
+      wheel.style.transition = 'transform 4s ease-out';
+      wheel.style.transform = `rotate(${rotateAngle}deg)`;
+
+      spinBtn.disabled = true;
+
+      setTimeout(() => {
+        resultText.innerText = `🎉 Go hunt for Gift #${giftNumber} around the house!`;
+        localStorage.setItem('lastSpinDate', today);
+        localStorage.setItem('giftNumber', giftNumber);
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
