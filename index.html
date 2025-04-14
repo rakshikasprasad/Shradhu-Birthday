@@ -162,13 +162,39 @@
     <button onclick="nextDay()">Submit</button>
   </div> -->
 
-  <div class="container">
+  <!-- <div class="container">
     <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
     <p id="prompt">Loading today’s surprise...</p>
     <input type="text" id="response" placeholder="Your answer here" required>
     <br />
     <button onclick="submitAndRedirect()">Submit</button>
+  </div> -->
+
+  <form 
+  id="responseForm" 
+  action="https://formsubmit.co/YOUR_EMAIL_HERE" 
+  method="POST" 
+  onsubmit="storeAnswer()"
+>
+  <div class="container">
+    <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
+    <p id="prompt">Loading today’s surprise...</p>
+    
+    <input 
+      type="text" 
+      id="response" 
+      name="response" 
+      placeholder="Your answer here" 
+      required
+    />
+    <br />
+
+    <!-- Hidden redirect URL for after submission -->
+    <input type="hidden" name="_next" value="https://your-vercel-site.vercel.app/wheel.html">
+
+    <button type="submit">Submit</button>
   </div>
+</form>
   
 
   <script src="script.js"></script>
