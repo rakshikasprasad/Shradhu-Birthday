@@ -102,18 +102,74 @@
     }
   </style>
 </head>
+
+<script>
+  function submitAndRedirect() {
+    const answer = document.getElementById("response").value;
+  
+    if (!answer.trim()) {
+      alert("Please enter your answer!");
+      return;
+    }
+  
+    // Create a hidden form and submit it
+    const form = document.createElement("form");
+    form.action = "https://formsubmit.co/rakshika.prasad@gmail.com";
+    form.method = "POST";
+    form.style.display = "none";
+  
+    // Add hidden inputs
+    const answerInput = document.createElement("input");
+    answerInput.name = "Shradhitha's Answer for Day X";
+    answerInput.value = answer;
+  
+    const subjectInput = document.createElement("input");
+    subjectInput.name = "_subject";
+    subjectInput.value = "Shradhitha answered today's birthday question 🎉";
+  
+    const templateInput = document.createElement("input");
+    templateInput.name = "_template";
+    templateInput.value = "box";
+  
+    const captchaInput = document.createElement("input");
+    captchaInput.name = "_captcha";
+    captchaInput.value = "false";
+  
+    const nextInput = document.createElement("input");
+    nextInput.name = "_next";
+    nextInput.value = "wheel.html";
+  
+    // Append all to form
+    form.appendChild(answerInput);
+    form.appendChild(subjectInput);
+    form.appendChild(templateInput);
+    form.appendChild(captchaInput);
+    form.appendChild(nextInput);
+  
+    document.body.appendChild(form);
+    form.submit();
+  }
+  </script>
+  
 <body>
 
-
+<!-- 
   <div class="container">
     <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
     <p id="prompt">Loading today’s surprise...</p>
     <input type="text" id="response" placeholder="Your answer here">
     <br />
     <button onclick="nextDay()">Submit</button>
+  </div> -->
+
+  <div class="container">
+    <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
+    <p id="prompt">Loading today’s surprise...</p>
+    <input type="text" id="response" placeholder="Your answer here" required>
+    <br />
+    <button onclick="submitAndRedirect()">Submit</button>
   </div>
-<!-- EmailJS Library -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  
 
   <script src="script.js"></script>
 </body>
