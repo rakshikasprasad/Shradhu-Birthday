@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>18 Days of Surprises</title>
@@ -102,101 +101,66 @@
     }
   </style>
 </head>
-
-<script>
-  function submitAndRedirect() {
-    const answer = document.getElementById("response").value;
-  
-    if (!answer.trim()) {
-      alert("Please enter your answer!");
-      return;
-    }
-  
-    // Create a hidden form and submit it
-    const form = document.createElement("form");
-    form.action = "https://formsubmit.co/rakshika.prasad@gmail.com";
-    form.method = "POST";
-    form.style.display = "none";
-  
-    // Add hidden inputs
-    const answerInput = document.createElement("input");
-    answerInput.name = "Shradhitha's Answer for Day X";
-    answerInput.value = answer;
-  
-    const subjectInput = document.createElement("input");
-    subjectInput.name = "_subject";
-    subjectInput.value = "Shradhitha answered today's birthday question 🎉";
-  
-    const templateInput = document.createElement("input");
-    templateInput.name = "_template";
-    templateInput.value = "box";
-  
-    const captchaInput = document.createElement("input");
-    captchaInput.name = "_captcha";
-    captchaInput.value = "false";
-  
-    const nextInput = document.createElement("input");
-    nextInput.name = "_next";
-    nextInput.value = "wheel.html";
-  
-    // Append all to form
-    form.appendChild(answerInput);
-    form.appendChild(subjectInput);
-    form.appendChild(templateInput);
-    form.appendChild(captchaInput);
-    form.appendChild(nextInput);
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
-  </script>
-  
 <body>
+  <form id="responseForm" action="https://formsubmit.co/rakshika.prasad@gmail.com" method="POST">
+    <div class="container">
+      <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
+      <p id="prompt">Loading today’s surprise...</p>
+      
+      <input type="text" id="response" name="response" placeholder="Your answer here" required />
+      <br />
+      
+      <!-- Hidden redirect URL for after submission -->
+      <input type="hidden" name="_next" value="https://your-vercel-site.vercel.app/wheel.html" />
+      
+      <button type="submit">Submit</button>
+    </div>
+  </form>
 
-<!-- 
-  <div class="container">
-    <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
-    <p id="prompt">Loading today’s surprise...</p>
-    <input type="text" id="response" placeholder="Your answer here">
-    <br />
-    <button onclick="nextDay()">Submit</button>
-  </div> -->
-
-  <!-- <div class="container">
-    <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
-    <p id="prompt">Loading today’s surprise...</p>
-    <input type="text" id="response" placeholder="Your answer here" required>
-    <br />
-    <button onclick="submitAndRedirect()">Submit</button>
-  </div> -->
-
-  <form 
-  id="responseForm" 
-  action="https://formsubmit.co/rakshika.prasad@gmail.com" 
-  method="POST" 
-  onsubmit="storeAnswer()"
->
-  <div class="container">
-    <h1>Welcome to Your Birthday Countdown, Shradhitha! 🎉</h1>
-    <p id="prompt">Loading today’s surprise...</p>
+  <script>
+    // Define the start date (April 15, 2025)
+    const startDate = new Date('2025-04-14');
     
-    <input 
-      type="text" 
-      id="response" 
-      name="response" 
-      placeholder="Your answer here" 
-      required
-    />
-    <br />
+    // Get today's date
+    const today = new Date('2025-04-15');
+    
+    // Calculate the number of days since the start date
+    const timeDiff = today - startDate;
+    const daysSinceStart = Math.floor(timeDiff / (1000 * 3600 * 24)); // Convert time to days
+    
+    // List of questions for each day (18 questions)
+    const questions = [
+      "On Day 1, let's start with a fun question: What's one thing you’re looking forward to this year?",
+      "Day 2: What's your favorite childhood memory?",
+      "Day 3: If you could visit any place in the world, where would it be?",
+      "Day 4: What is the best piece of advice you've ever received?",
+      "Day 5: What's your dream job or career?",
+      "Day 6: If you had a superpower, what would it be and why?",
+      "Day 7: What’s the best book you’ve ever read?",
+      "Day 8: If you could have dinner with any celebrity, who would it be?",
+      "Day 9: What’s your favorite family tradition?",
+      "Day 10: What’s a skill you’d love to learn?",
+      "Day 11: If you could live in any time period, which one would it be?",
+      "Day 12: What’s your favorite movie and why?",
+      "Day 13: What’s one of your biggest achievements?",
+      "Day 14: What’s the most adventurous thing you’ve done?",
+      "Day 15: What are you most grateful for today?",
+      "Day 16: Who inspires you the most and why?",
+      "Day 17: What’s a place you want to visit in your lifetime?",
+      "Day 18: Happy Birthday, Shradhitha! Here's your special surprise message!"
+    ];
 
-    <!-- Hidden redirect URL for after submission -->
-    <input type="hidden" name="_next" value="https://your-vercel-site.vercel.app/wheel.html">
+    // Show the question for the current day
+    function displayQuestion() {
+      if (daysSinceStart >= 0 && daysSinceStart < questions.length) {
+        document.getElementById("prompt").innerText = questions[daysSinceStart];
+      } else {
+        document.getElementById("prompt").innerText = "Your special birthday surprise is ready!";
+      }
+    }
 
-    <button type="submit">Submit</button>
-  </div>
-</form>
-  
-
-  <script src="script.js"></script>
+    // Initialize the countdown question on page load
+    displayQuestion();
+  </script>
 </body>
 </html>
