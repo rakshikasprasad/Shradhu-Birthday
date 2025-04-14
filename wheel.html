@@ -82,30 +82,9 @@
       font-size: 1.4em;
       margin-top: 20px;
     }
-
-    /* Confetti image and decorations */
-    .decor {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .decor img {
-      width: 100%;
-      max-height: 150px;
-    }
-
-    @media screen and (max-width: 480px) {
-      h1 { font-size: 1.5rem; }
-      #result { font-size: 1.2rem; }
-    }
   </style>
 </head>
 <body>
-  
-
   <h1>Spin the Wheel to Get Today’s Gift!</h1>
   <div id="pointer"></div>
   <div id="wheel"></div>
@@ -136,10 +115,10 @@
       spinBtn.disabled = true;
 
       setTimeout(() => {
-        resultText.innerText = `🎉 Go hunt for Gift #${giftNumber} around the house!`;
+        resultText.innerText = `🎉 Your gift is #${giftNumber}! 🎁`;
         localStorage.setItem('lastSpinDate', today);
         localStorage.setItem('giftNumber', giftNumber);
-      }, 4000);
+      }, 4000); // Delay to show result after spinning
     }
   </script>
 </body>
